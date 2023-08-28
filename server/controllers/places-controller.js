@@ -118,7 +118,9 @@ const updatePlace = async (req, res, next) => {
 
   if (!errors.isEmpty()) {
     //There are errors
-    throw new HttpError("Invalid inputs passed, please check your data.", 422);
+    return next(
+      new HttpError("Invalid inputs passed, please check your data.", 422)
+    );
   }
 
   const { title, description } = req.body;
