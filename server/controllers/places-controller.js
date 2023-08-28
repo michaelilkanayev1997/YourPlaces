@@ -3,6 +3,7 @@ const { validationResult } = require("express-validator");
 
 const HttpError = require("../models/http-error");
 const getCoordsForAddress = require("../util/location");
+const Place = require("../models/place");
 
 let DUMMY_PLACES = [
   {
@@ -17,19 +18,6 @@ let DUMMY_PLACES = [
       lng: -73.9831886,
     },
     creator: "u1",
-  },
-  {
-    id: "p2",
-    title: "Emp. State Building",
-    description: "one of the most famous sky scrapers in the world!",
-    imageUrl:
-      "https://www.esbnyc.com/sites/default/files/2020-01/ESB%20Day.jpg",
-    address: "20 W 34th St., New York, NY 10001",
-    location: {
-      lat: 40.7485734,
-      lng: -73.9852849,
-    },
-    creator: "u2",
   },
 ];
 
@@ -82,18 +70,27 @@ const createPlace = async (req, res, next) => {
     return next(error);
   }
 
-  const createdPlace = {
-    id: uuid.v4(),
+  const createdPlace = new Place({
     title,
     description,
-    location: coordinates,
     address,
+    location: coordinates,
+    image:
+      "https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2020/05/Tel-Aviv-4-scaled-e1589807189455-1024x608.jpg?resize=1024%2C608&ssl=1",
     creator,
-  };
+  });
 
-  DUMMY_PLACES.push(createdPlace);
+  try {
+    await createdPlace.save(); // store the new document in the database
+  } catch (err) {
+    const error = new HttpError(
+      "Creating place failed , please try again.",
+      500
+    );
+    return next(error);
+  }
 
-  res.status(201).json({ place: createPlace });
+  res.status(201).json({ place: createdPlace });
 };
 
 const updatePlace = (req, res, next) => {
