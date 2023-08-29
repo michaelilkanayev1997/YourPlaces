@@ -9,7 +9,7 @@
 
 - **Frontend**: React.
 - **Backend/API**: Node.js with Express and MongoDB.
-- **Geo-location**: Utilizing Google Geo-location Service for precise location tracking. 
+- **Geo-location**: Utilizing Google Geo-location Service for precise location tracking.
 - **Maps and Auto-complete**: Google Maps and Places API.
 - **State Management**: React Context.
 - **CRUD Operations**: Advanced create, read, update, delete.

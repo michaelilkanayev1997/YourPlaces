@@ -37,7 +37,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existingUsers;
   try {
@@ -63,7 +63,7 @@ const signup = async (req, res, next) => {
     email,
     image: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
     password,
-    places,
+    places: [],
   });
 
   try {
