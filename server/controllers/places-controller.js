@@ -82,8 +82,7 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image:
-      "https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2020/05/Tel-Aviv-4-scaled-e1589807189455-1024x608.jpg?resize=1024%2C608&ssl=1",
+    image: req.file.path,
     creator,
   });
 
