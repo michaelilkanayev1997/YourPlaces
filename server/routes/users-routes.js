@@ -10,7 +10,7 @@ router.get("/", usersController.getUsers);
 
 router.post(
   "/signup",
-  fileUpload.single("image"),
+  fileUpload.single("image"), //applying middleware to sign up route
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
