@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,25 +16,6 @@ import { useAuth } from "./shared/hooks/auth-hook";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
-
-  useEffect(() => {
-    // Get the API key from the environment variable
-    const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-
-    // Create a script element for the Google Maps API
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=Function.prototype`;
-    script.async = true;
-
-    // Find the placeholder script tag and replace it with the Google Maps script
-    const placeholderScript = document.getElementById("google-maps-script");
-    placeholderScript.parentNode.replaceChild(script, placeholderScript);
-
-    // Cleanup function for when the component is unmounted
-    return () => {
-      script.remove();
-    };
-  }, []);
 
   let routes;
 
