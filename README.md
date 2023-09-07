@@ -14,10 +14,11 @@
 - **State Management**: React Context.
 - **CRUD Operations**: Advanced create, read, update, delete.
 - **Authentication & Authorization**: Implemented.
+- **Deployment**: Render (Backend), Netlify (Frontend).
 
 ## Project Overview
 
-YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, React, Node.js) stack. It provides a user-friendly interface for creating, managing, and searching nearby locations. The integration of Google's Geo-location Service, Maps, and Places API adds powerful features to the project.
+YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, React, Node.js) stack. It provides a user-friendly interface for creating, managing, and searching locations. The integration of Google's Geo-location Service, Maps, and Places API adds powerful features to the project.
 
 ## Features
 
