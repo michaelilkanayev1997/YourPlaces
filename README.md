@@ -28,3 +28,5 @@ YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, R
 - Efficient state management through React Context.
 - Advanced CRUD (create, read, update, delete) operations.
 - Secure authentication and authorization mechanism.
+
+**Demo**: [View YourPlaces App](https://your-places-michael.netlify.app/)
