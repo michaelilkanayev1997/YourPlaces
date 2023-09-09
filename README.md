@@ -1,9 +1,11 @@
 <div align="center">
   <h1>YourPlaces</h1>
   <p>
-    An exciting MERN stack project for creating, managing, and searching Your Places!
+   YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, React, Node.js) stack with Vercel handling the backend and Netlify hosting the frontend. It provides a user-friendly interface for creating, managing, and searching locations. The integration of Google's Geo-location Service, Maps, and Places API adds powerful features to the project, while AWS S3 ensures efficient image uploads and storage.
   </p>
 </div>
+
+**Demo**: [View YourPlaces App](https://your-places-michael.netlify.app/)
 
 ## Technologies Used
 
@@ -14,11 +16,8 @@
 - **State Management**: React Context.
 - **CRUD Operations**: Advanced create, read, update, delete.
 - **Authentication & Authorization**: Implemented.
-- **Deployment**: Render (Backend), Netlify (Frontend).
-
-## Project Overview
-
-YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, React, Node.js) stack. It provides a user-friendly interface for creating, managing, and searching locations. The integration of Google's Geo-location Service, Maps, and Places API adds powerful features to the project.
+- **Deployment**: Vercel (Backend), Netlify (Frontend).
+- **Image Uploads and Storage**: AWS S3.
 
 ## Features
 
@@ -29,4 +28,4 @@ YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, R
 - Advanced CRUD (create, read, update, delete) operations.
 - Secure authentication and authorization mechanism.
 
-**Demo**: [View YourPlaces App](https://your-places-michael.netlify.app/)
+
