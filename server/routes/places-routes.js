@@ -2,7 +2,7 @@ const express = require("express");
 const { check } = require("express-validator");
 
 const placesControllers = require("../controllers/places-controller");
-const fileUpload = require("../middleware/file-upload");
+const fileUpload = require("../middleware/s3-file-upload");
 const checkAuth = require("../middleware/check-auth");
 
 const router = express.Router();
@@ -15,8 +15,7 @@ router.use(checkAuth); // protecting all the routes in the bottom
 
 router.post(
   "/",
-  fileUpload.single("image"), //applying middleware to sign up route
-
+  fileUpload.uploadFile.single("image"), //applying middleware to upload Place
   [
     check("title").not().isEmpty(),
     check("description").isLength({ min: 5 }),

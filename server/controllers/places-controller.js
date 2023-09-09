@@ -8,6 +8,12 @@ const getCoordsForAddress = require("../util/location");
 const Place = require("../models/place");
 const User = require("../models/user");
 
+const {
+  uploadImageToS3,
+  generateS3ImageUrl,
+  deleteS3Image,
+} = require("../middleware/s3-file-upload");
+
 const getPlaceById = async (req, res, next) => {
   const placeId = req.params.pid;
 
@@ -39,6 +45,9 @@ const getPlacesByUserId = async (req, res, next) => {
   let userWithPlaces;
   try {
     userWithPlaces = await User.findById(userId).populate("places");
+    for (const place of userWithPlaces.places) {
+      place.image = await generateS3ImageUrl(place);
+    }
   } catch (err) {
     const error = new HttpError(
       "Fetching places failed, please try again later.",
@@ -79,12 +88,18 @@ const createPlace = async (req, res, next) => {
     return next(error);
   }
 
+  const imageKey = await uploadImageToS3(
+    req.file.buffer,
+    req.file.mimetype,
+    false
+  );
+
   const createdPlace = new Place({
     title,
     description,
     address,
     location: coordinates,
-    image: req.file.path,
+    image: imageKey,
     creator: req.userData.userId,
   });
 
@@ -103,7 +118,6 @@ const createPlace = async (req, res, next) => {
     const error = new HttpError("Could not find user for provided id.", 404);
     return next(error);
   }
-  console.log(user);
 
   try {
     const session = await mongoose.startSession();
@@ -212,9 +226,7 @@ const deletePlace = async (req, res, next) => {
     return next(error);
   }
 
-  fs.unlink(imagePath, (err) => {
-    console.log(err);
-  });
+  await deleteS3Image(imagePath);
 
   res.status(200).json({ message: "Deleted place." });
 };
