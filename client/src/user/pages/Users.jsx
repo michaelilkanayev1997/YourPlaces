@@ -14,7 +14,6 @@ const Users = () => {
         const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + "/users"
         );
-        console.log(responseData.users);
 
         setLoadedUsers(responseData.users);
       } catch (err) {}
