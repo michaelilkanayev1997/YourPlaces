@@ -7,7 +7,11 @@
    <br /><br />
 </div>
 
-**Demo**: [View YourPlaces App](https://your-places-michael.netlify.app/)
+## Demo  
+[View YourPlaces App](https://your-places-michael.netlify.app/)
+
+## Video Showcase
+[Watch a Video Demonstration of the App](https://www.youtube.com/watch?v=qmpWfpCtnrM)
 
 ## Technologies Used
 
