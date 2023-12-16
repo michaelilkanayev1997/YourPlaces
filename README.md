@@ -3,7 +3,6 @@
   <p>
    YourPlaces is a full-stack project developed using the MERN (MongoDB, Express, React, Node.js) stack with Vercel handling the backend and Netlify hosting the frontend. It provides a user-friendly interface for creating, managing, and searching locations. The integration of Google's Geo-location Service, Maps, and Places API adds powerful features to the project, while AWS S3 ensures efficient image uploads and storage.
   </p>
-   <br /><br />
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExenVtNjNzZzFrNmZlOHIyNThnY2ZzdzV2czVlbDBlY3hkOXExcjAwNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRLp3MfJCknKsnlGcD/giphy.gif" alt="YourPlaces Demo" />
    <br /><br />
 </div>
